@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced MST Visualizer</title>
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="side-panel">
+            <div class="brand">MST Analyzer</div>
+            
+            <div class="card">
+                <h3>Adjacency Matrix</h3>
+                <div id="matrixContainer" class="matrix-view">No nodes yet</div>
+            </div>
+
+            <div class="card">
+                <h3>MST Iterations</h3>
+                <div class="table-scroll">
+                    <table id="iterationTable">
+                        <thead>
+                            <tr><th>Edge</th><th>Wt</th></tr>
+                        </thead>
+                        <tbody id="iterBody"></tbody>
+                    </table>
+                </div>
+                <div id="finalCost" class="total-cost"></div>
+            </div>
+        </aside>
+
+        <main class="main-panel">
+            <div class="toolbar">
+                <button id="addNodeBtn" class="active">Add Nodes</button>
+                <button id="addEdgeBtn">Add Edges</button>
+                <div class="spacer"></div>
+                <div class="speed-control">
+                    <label>Speed:</label>
+                    <input type="range" id="speedSlider" min="100" max="2000" value="1200">
+                </div>
+                <button id="runBtn" class="run-btn">Run Prim's</button>
+                <button id="clearBtn" class="clear-btn">Reset</button>
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="graphCanvas"></canvas>
+            </div>
+            
+            <div id="statusLabel" class="status-bar">Ready: Click to add nodes</div>
+        </main>
+    </div>
+
+    <script type="py" src="script.py" config='{"interpreter_terminate_on_error": false}'></script>
+</body>
+</html>
